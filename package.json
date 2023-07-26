@@ -1,0 +1,21 @@
+{
+  "name": "puppeteer-cucumber-ts-example",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@cucumber/cucumber": "^9.3.0",
+    "@cucumber/pretty-formatter": "^1.0.0",
+    "expect": "^27.5.1",
+    "puppeteer": "^13.5.1",
+    "puppeteer-select": "^1.0.3",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^3.14.1",
+    "typescript": "^4.6.2"
+  },
+  "scripts": {
+    "cucumber-js": "cucumber-js",
+    "test": "cucumber-js apps/demo",
+    "test.wip": "cucumber-js --tags @wip apps/demo"
+  }
+}
