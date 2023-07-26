@@ -19,6 +19,12 @@ Given('I am on the Google search page', async function (this: IGoogleWorld) {
   this.browser = await getBrowser();
   this.page = await this.browser.newPage();
   await this.page.goto(GOOGLE_HOMEPAGE());
+
+  // await delay(5000000);
+  // css3 support
+  await assertElementPresent(this.page, 'button:contains(Aceitar tudo)');
+  (await getElement(this.page, 'button:contains(Aceitar tudo)')).click();
+
 });
 
 async function delay(timeout: number) {
@@ -26,10 +32,6 @@ async function delay(timeout: number) {
 }
 
 When('I enter {string} into the search box', async function (this: IGoogleWorld, searchTerm: string) {
-  // css3 support
-  await assertElementPresent(this.page, 'button:contains(tudo)');
-  (await getElement(this.page, 'button:contains(tudo)')).click();
-
   await this.page.waitForSelector('textarea[name="q"]');
   await this.page.click('textarea[name="q"]');
   await this.page.type('textarea[name="q"]', searchTerm);
@@ -45,5 +47,7 @@ Then('I should see search results', async function (this: IGoogleWorld) {
   await this.page.waitForSelector('#search');
   const title = await this.page.title();
   expect(title).toContain('Puppeteer with Cucumber in TypeScript');
+
+  // just for demo
   await delay(5000);
 });
