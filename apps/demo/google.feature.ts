@@ -54,5 +54,5 @@ Then('I should see search results', async function (this: IGoogleWorld) {
   expect(title).toContain('Puppeteer with Cucumber in TypeScript');
 
   // just for demo
-  await delay(5000);
+  await delay(3000);
 });

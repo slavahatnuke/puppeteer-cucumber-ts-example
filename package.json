@@ -16,6 +16,7 @@
   "scripts": {
     "cucumber-js": "cucumber-js",
     "test": "cucumber-js apps/demo",
+    "test.headless": "HEADLESS=true cucumber-js apps/demo",
     "test.wip": "cucumber-js --tags @wip apps/demo"
   }
 }
