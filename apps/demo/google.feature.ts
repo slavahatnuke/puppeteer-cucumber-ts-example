@@ -5,8 +5,13 @@ import {GOOGLE_HOMEPAGE} from "@packages/bdd/HOMEPAGE";
 import {IBrowserWorld} from "@packages/bdd/IBrowserWorld";
 import {assertElementPresent, getElement} from "@packages/bdd/getElement";
 
-export type IGoogleWorld = IBrowserWorld;
+// uses IBrowserWorld and could add own properties to manage testing state.
+export type IGoogleWorld = IBrowserWorld & { featureSpecificField1: string, featureSpecificField2: number }
+
 Before(async function (this: IGoogleWorld) {
+  // example of initializing feature specific state
+  this.featureSpecificField1 = 'any value could be defined here as default';
+  this.featureSpecificField2 = 12345;
 });
 
 After(async function (this: IGoogleWorld) {
